@@ -5,7 +5,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         id: 'rootd',
         title: "Root'd",
         description: 'A platform for discussing biblical topics',
-        image: '/assets/projects/rootd.png',
+        image: 'rootd.png',
         tech: [
             'TypeScript',
             'Next.js',
@@ -27,7 +27,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         title: 'EZCompare',
         description:
             'A tool designed to make the process of creating detailed comparison tables an easier, quicker and more enjoyable experience',
-        image: '/assets/projects/ezCompare.png',
+        image: 'ezCompare.png',
         tech: [
             'TypeScript',
             'Next.js',
@@ -45,7 +45,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         title: 'The Custom Kitchen',
         description:
             'Easy-to-use recipe search app for those with specific dietary needs',
-        image: '/assets/projects/customKitchen.png',
+        image: 'customKitchen.png',
         tech: [
             'TypeScript',
             'HTML',
@@ -70,7 +70,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         id: 'gameEngine',
         title: 'Custom 3D Game Engine',
         description: '3D game engine created using TypeScript and WebGPU',
-        image: '/assets/projects/gameEngine.png',
+        image: 'gameEngine.png',
         tech: ['TypeScript', 'WebGPU', 'HTML', 'CSS'],
         github: 'https://github.com/jtkyber/game_engine',
         site: 'https://jtkyber.github.io/game_engine/',
@@ -81,7 +81,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         id: 'raycaster',
         title: 'Advanced Raycasting Game Engine',
         description: 'An advanced 2.5D JavaScript raycasting engine',
-        image: '/assets/projects/raycaster.png',
+        image: 'raycaster.png',
         tech: ['JavaScript', 'HTML', 'CSS'],
         github: 'https://github.com/jtkyber/raycaster-game',
         site: 'https://jtkyber.github.io/raycaster-game/',
@@ -92,7 +92,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         title: 'Ski Resort Forecast API',
         description:
             'An API that shows the forecast and current snow conditions for a provided ski resort',
-        image: '/assets/projects/resortForecast.png',
+        image: 'resortForecast.png',
         tech: ['Node.js', 'Express', 'Puppeteer', 'Cheerio', 'Heroku'],
         github: 'https://github.com/jtkyber/resort-forecast-api',
         site: 'https://rapidapi.com/joeykyber/api/ski-resort-forecast',

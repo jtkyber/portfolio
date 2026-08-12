@@ -1,5 +1,5 @@
 import SectionLabel from '../../components/section_label';
-import profile from '../../../public/assets/about/profile_square2.webp';
+import profile from '../../assets/about/profile_square2.webp';
 import Glow from '../../components/glow';
 import DuotoneFilter from '../../components/svg/duotone_filter';
 import { useColorScheme } from '../../hooks/use_color_scheme';

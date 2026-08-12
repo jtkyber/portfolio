@@ -1,13 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import Navbar from './components/navbar';
 import Hero from './sections/hero';
 import Projects from './sections/projects';
 import { render } from './smoke_effect/renderer';
-import campingScene from '../public/assets/camping_theme/camp_scene.png';
-import campingSceneDay from '../public/assets/camping_theme/camp_scene_day.png';
-import moon from '../public/assets/camping_theme/moon.png';
-import sun from '../public/assets/camping_theme/sun.png';
-import pine from '../public/assets/camping_theme/pine2.png';
+import campingScene from './assets/camping_theme/camp_scene.png';
+import campingSceneDay from './assets/camping_theme/camp_scene_day.png';
+import moon from './assets/camping_theme/moon.png';
+import sun from './assets/camping_theme/sun.png';
+import pine from './assets/camping_theme/pine2.png';
 import { useColorScheme } from './hooks/use_color_scheme';
 import Skills from './sections/skills';
 import About from './sections/about';
@@ -16,7 +16,6 @@ import DuotoneFilter from './components/svg/duotone_filter';
 function App() {
     const hasRun = useRef(false);
     const [theme, toggleTheme] = useColorScheme();
-    // const [scrollFraction, setScrollFraction] = useState(0);
 
     useEffect(() => {
         if (hasRun.current) return;
@@ -25,18 +24,6 @@ function App() {
 
         hasRun.current = true;
     }, []);
-
-    // useEffect(() => {
-    //     const handleScroll = () => {
-    //         const percent =
-    //             window.scrollY / (body.scrollHeight - window.innerHeight);
-    //         setScrollFraction(percent);
-    //     };
-    //
-    //     document.addEventListener('scroll', handleScroll);
-    //
-    //     return () => document.removeEventListener('scroll', handleScroll);
-    // }, []);
 
     return (
         <div
