@@ -5,7 +5,7 @@ export default function Navbar() {
         <div className='sticky inset-0 w-full h-nav-height z-100 after:content-[""] after:inset-0 after:absolute after:w-full after:h-full after:backdrop-blur-sm after:-z-1'>
             <div
                 data-name='blur-layer'
-                className='absolute -z-1 inset-0 w-full h-full bg-surface shadow-lg shadow-black/15 opacity-100'
+                className='absolute -z-1 inset-0 w-full h-full bg-background shadow-lg shadow-black/15 opacity-100'
             ></div>
 
             <nav

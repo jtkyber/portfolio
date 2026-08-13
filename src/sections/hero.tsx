@@ -1,11 +1,17 @@
+import { useColorScheme } from '../hooks/use_color_scheme';
+
 export default function Hero() {
+    const [theme, _toggleTheme] = useColorScheme();
+
     return (
         <section
             data-name='hero-section'
             className='w-full h-screen flex items-end pb-60'
         >
             <div className='flex flex-col flex-nowrap gap-4 pl-10'>
-                <h3 className='text-6xl text-text/90 font-medium font-heading'>
+                <h3
+                    className={`text-6xl ${theme === 'dark' ? 'text-text' : 'text-primary'} font-medium font-heading`}
+                >
                     Full-Stack Developer
                 </h3>
                 <p className='text-lg max-w-lg text-text font-light'>

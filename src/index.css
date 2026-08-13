@@ -24,7 +24,7 @@
     --background: #ede9e1;
     --sky: #d9dcdb;
     --surface: #e2dbd0;
-    --primary: #4e6e52;
+    --primary: #48654c;
     --accent: #c4714a;
     --text: #1e1a14;
     --sun-moon-glow: white;
@@ -202,7 +202,7 @@ canvas {
 }
 
 @utility surface-styles {
-    @apply shadow-lg shadow-black/10 ring-1 ring-text/20 bg-surface/70 rounded-md;
+    @apply shadow-lg shadow-black/30 ring-1 ring-text/20 bg-surface/0 rounded-md;
 }
 
 @utility item-hover {

@@ -44,7 +44,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         id: 'customKitchen',
         title: 'The Custom Kitchen',
         description:
-            'Easy-to-use recipe search app for those with specific dietary needs',
+            'Convenient recipe search app for those with specific dietary needs',
         image: 'customKitchen.png',
         tech: [
             'TypeScript',

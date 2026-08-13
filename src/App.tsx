@@ -42,7 +42,7 @@ function App() {
                         alt='Moon or sun'
                         className='absolute w-30 h-auto top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 cursor-pointer'
                         onClick={toggleTheme}
-                        style={{ opacity: theme === 'light' ? '60%' : '100%' }}
+                        style={{ opacity: theme === 'light' ? '0%' : '100%' }}
                     />
                 </div>
             </div>
@@ -104,7 +104,7 @@ function App() {
 
             <div
                 data-name='contents'
-                className='relative px-8 flex flex-col max-w-max-body-w mb-110'
+                className='relative px-8 flex flex-col max-w-max-body-w mb-90'
             >
                 <Hero />
 

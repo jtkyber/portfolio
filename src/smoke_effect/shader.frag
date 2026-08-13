@@ -269,8 +269,8 @@ void main() {
     float smokeXfuel3      = smokeXfuelSpread * smokeXfuelSpread * smokeXfuelSpread;
 
     float smokeFade = 1.0 - smoothstep(0.7, 1.0, ypart); // fully visible below 30% height, fades to 0 at top
-    float smokeIntensityBoost = mix(1.0, 2.0, isLightMode); // thicker smoke when "put out"
-    float smokeHeightCurve = mix(0.6, 1.0, sqrt(ypart)); // starts at 0.6 near the fire, ramps to 1.0 higher up
+    float smokeIntensityBoost = mix(0.7, 1.0, isLightMode); // thicker smoke when "put out"
+    float smokeHeightCurve = mix(1.0, 1.0, sqrt(ypart)); // starts at 0.6 near the fire, ramps to 1.0 higher up
 float smokeIntensity = smokeIntensityBoost * 0.3 * smokeXfuel3 * smokeHeightCurve * smokeFade * smokeNoise * 1.3;
     vec3 smokeColorLowDark   = vec3(0.420, 0.341, 0.278);
     vec3 smokeColorHighDark  = vec3(0.243, 0.290, 0.361);
@@ -287,7 +287,7 @@ float smokeIntensity = smokeIntensityBoost * 0.3 * smokeXfuel3 * smokeHeightCurv
 
     // Sparks
     float sparkSpeed = 100.0;
-    float sparkGridSize = 15.0;
+    float sparkGridSize = 13.0;
     vec2 sparkFlow = vec2(flow.x * 0.35, flow.y);
     vec2 sparkCoord = fragCoordFixed - vec2(0.0, sparkSpeed * realTime);
 
@@ -326,7 +326,7 @@ float smokeIntensity = smokeIntensityBoost * 0.3 * smokeXfuel3 * smokeHeightCurv
     float sparkWidthPx = fireWidthPx * sparkSpread;
     float sparkXfuel   = clamp(1.0 - abs(2.0 * distFromCenter) / sparkWidthPx, 0.0, 1.0);
 
-    float chanceDark  = 0.25; // normal amount of sparks at night
+    float chanceDark  = 0.30; // normal amount of sparks at night
     float chanceLight = 0.15; // very few sparks when put out in daytime
 
     float sparkSpawnChance = mix(chanceDark, chanceLight, isLightMode);
