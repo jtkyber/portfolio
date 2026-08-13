@@ -37,7 +37,7 @@ export default function ProjectHighlighted({
                 >
                     <div className='relative w-full h-full'>
                         <img
-                            src={`../../../assets/projects/${project.image}`}
+                            src={`assets/projects/${project.image}`}
                             alt='Project Image'
                             className='absolute w-full h-full object-cover rounded-md'
                         />
