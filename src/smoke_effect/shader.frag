@@ -315,7 +315,6 @@ float smokeIntensity = smokeIntensityBoost * 0.3 * smokeXfuel3 * smokeHeightCurv
 
     vec2  sparkGridIndex = floor(sparkCoord / sparkGridSize);
     float sparkRandom    = prng(sparkGridIndex);
-    sparkRandom = mix(sparkRandom, 1.0, isLightMode * step(0.3, prng(sparkGridIndex + 5.5)));
     float sparkLife      = min(
         10.0 * (1.0 - min(
             (sparkGridIndex.y + (sparkSpeed * realTime / sparkGridSize)) / (30.0 - 20.0 * sparkRandom),
@@ -327,8 +326,8 @@ float smokeIntensity = smokeIntensityBoost * 0.3 * smokeXfuel3 * smokeHeightCurv
     float sparkWidthPx = fireWidthPx * sparkSpread;
     float sparkXfuel   = clamp(1.0 - abs(2.0 * distFromCenter) / sparkWidthPx, 0.0, 1.0);
 
-    float chanceDark  = 0.15; // normal amount of sparks at night
-    float chanceLight = 0.30; // very few sparks when put out in daytime
+    float chanceDark  = 0.25; // normal amount of sparks at night
+    float chanceLight = 0.15; // very few sparks when put out in daytime
 
     float sparkSpawnChance = mix(chanceDark, chanceLight, isLightMode);
 
