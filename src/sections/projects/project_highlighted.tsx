@@ -33,13 +33,13 @@ export default function ProjectHighlighted({
 
                 <div
                     data-name='image-container'
-                    className='w-full aspect-video overflow-clip'
+                    className='w-full aspect-video overflow-clip rounded-md ring-1 ring-text/30'
                 >
                     <div className='relative w-full h-full'>
                         <img
                             src={`assets/projects/${project.image}`}
                             alt='Project Image'
-                            className='absolute w-full h-full object-cover rounded-md'
+                            className='absolute w-full h-full object-cover opacity-100'
                         />
                     </div>
                 </div>

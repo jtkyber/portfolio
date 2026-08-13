@@ -27,11 +27,11 @@ export default function About() {
                     <img
                         src={profile}
                         alt='Profile Picture'
-                        className={`object-cover rounded-full filter-[url(#duotone-dark)_contrast(1.05)_brightness(1.1)]`}
+                        className={`object-cover rounded-full filter-[url(#duotone-dark)_contrast(1.05)_brightness(1.1)] ring-1 ring-text/30`}
                     />
                 </div>
 
-                <div className='flex flex-col gap-4 w-[70%] justify-center text-text'>
+                <div className='flex flex-col gap-4 w-[70%] justify-center text-text font-normal'>
                     <p>
                         I am a Full-Stack JavaScript Developer located in
                         Marietta, GA, USA. I enjoy using modern technologies to

@@ -10,20 +10,19 @@ export default function ThemeToggle() {
     return (
         <button
             role='switch'
-            className={`w-fit h-fit relative border-2 border-text/90 rounded-full z-1 px-1 py-1 cursor-pointer`}
+            className={`relative w-13 h-6.5 ring-2 ring-text rounded-full z-1 p-1.5 cursor-pointer flex flex-row items-center justify-between`}
             onClick={toggleColorScheme}
         >
-            <div className='relative flex flex-row'>
-                <div
-                    className={`absolute h-full aspect-square rounded-full bg-text -z-1 ${theme === 'dark' ? 'translate-x-0' : 'translate-x-full'} transition-transform duration-150 ease-out`}
-                ></div>
-                <MoonSVG
-                    className={`h-3.5 w-auto m-1 ${theme === 'dark' ? 'fill-surface' : 'fill-text'}`}
-                />
-                <SunSVG
-                    className={`h-3.5 w-auto m-1 ${theme === 'dark' ? 'fill-text' : 'fill-surface'}`}
-                />
-            </div>
+            <div
+                className={`absolute inset-0 w-1/2 aspect-square rounded-full bg-text -z-1 ${theme === 'dark' ? 'translate-x-0' : 'translate-x-full'} scale-80 will-change-transform transition-transform duration-150 ease-out`}
+            ></div>
+
+            <MoonSVG
+                className={`h-full w-auto ${theme === 'dark' ? 'fill-surface' : 'fill-text'}`}
+            />
+            <SunSVG
+                className={`h-full w-auto ${theme === 'dark' ? 'fill-text' : 'fill-surface'}`}
+            />
         </button>
     );
 }

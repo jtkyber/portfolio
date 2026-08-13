@@ -104,7 +104,7 @@ function App() {
 
             <div
                 data-name='contents'
-                className='relative px-8 flex flex-col max-w-max-body-w mb-90'
+                className='relative px-8 flex flex-col max-w-max-body-w mb-80'
             >
                 <Hero />
 
