@@ -5,7 +5,6 @@ import DuotoneFilter from '../../components/svg/duotone_filter';
 import { useColorScheme } from '../../hooks/use_color_scheme';
 import GithubSVG from '../../components/svg/github.svg';
 import LinkedinSVG from '../../components/svg/linkedin.svg';
-import EmailSVG from '../../components/svg/email.svg';
 
 export default function About() {
     const [theme, _toggleTheme] = useColorScheme();
