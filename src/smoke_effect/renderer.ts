@@ -41,7 +41,7 @@ export function render() {
             uniforms.iResolution.value.set(
                 gl.canvas.width,
                 gl.canvas.height,
-                renderer.dpr,
+                1,
             );
         }
 
