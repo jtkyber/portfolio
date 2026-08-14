@@ -13,9 +13,11 @@ export default function Navbar() {
                 className='w-full max-w-max-body-w h-full flex items-center justify-between px-6 m-auto'
             >
                 <div data-name='left' className=''>
-                    <h1 className='text-text text-3xl font-normal font-body tracking-wide'>
-                        Joey Kyber
-                    </h1>
+                    <a href='#hero-section'>
+                        <h1 className='text-text text-3xl font-normal font-body tracking-wide'>
+                            Joey Kyber
+                        </h1>
+                    </a>
                 </div>
 
                 <div

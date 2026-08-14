@@ -3,6 +3,9 @@ import profile from '../../assets/about/profile_square2.webp';
 import Glow from '../../components/glow';
 import DuotoneFilter from '../../components/svg/duotone_filter';
 import { useColorScheme } from '../../hooks/use_color_scheme';
+import GithubSVG from '../../components/svg/github.svg';
+import LinkedinSVG from '../../components/svg/linkedin.svg';
+import EmailSVG from '../../components/svg/email.svg';
 
 export default function About() {
     const [theme, _toggleTheme] = useColorScheme();
@@ -18,7 +21,7 @@ export default function About() {
             <div className='relative flex w-full max-w-180 gap-10 p-10 surface-styles'>
                 <Glow />
 
-                <div className='h-full flex flex-col shrink-0 justify-start gap-4 w-[30%]'>
+                <div className='h-full flex flex-col shrink-0 justify-between gap-4 w-[30%]'>
                     <DuotoneFilter
                         id='duotone-dark'
                         shadow={theme === 'dark' ? '#12161c' : '#252018'}
@@ -29,6 +32,34 @@ export default function About() {
                         alt='Profile Picture'
                         className={`object-cover rounded-full filter-[url(#duotone-dark)_contrast(1.05)_brightness(1.1)] ring-1 ring-text/30`}
                     />
+                    <div className='w-full flex flex-col gap-2 items-center'>
+                        <div className='h-5 flex flex-row gap-3'>
+                            <a
+                                className='item-hover'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href='https://www.linkedin.com/in/joseph-kyber-a0a26916a/'
+                            >
+                                <LinkedinSVG />
+                            </a>
+                            <a
+                                className='item-hover'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href='https://github.com/jtkyber'
+                            >
+                                <GithubSVG />
+                            </a>
+                        </div>
+                        <a
+                            className='text-text underline'
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            href='mailto:joeykyber@gmail.com'
+                        >
+                            joeykyber@gmail.com
+                        </a>
+                    </div>
                 </div>
 
                 <div className='flex flex-col gap-4 w-[70%] justify-center text-text font-normal'>

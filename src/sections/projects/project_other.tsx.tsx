@@ -1,12 +1,9 @@
 import Glow from '../../components/glow';
 import GithubSVG from '../../components/svg/github.svg';
 import WebsiteSVG from '../../components/svg/website.svg';
-import { useColorScheme } from '../../hooks/use_color_scheme';
 import type { ProjectOther } from '../../types/projects.types';
 
 export default function ProjectOther({ project }: { project: ProjectOther }) {
-    const [theme, _toggleTheme] = useColorScheme();
-
     return (
         <div
             data-name='project-other'
@@ -48,20 +45,20 @@ export default function ProjectOther({ project }: { project: ProjectOther }) {
                         className='w-full h-4 flex flex-row justify-end gap-3'
                     >
                         <a
-                            className='text-nowrap text-accent text-sm font-bold item-hover'
+                            className='item-hover'
                             target='_blank'
                             rel='noopener noreferrer'
                             href={project.github}
                         >
-                            <GithubSVG theme={theme} />
+                            <GithubSVG />
                         </a>
                         <a
-                            className='text-nowrap text-accent text-sm font-bold item-hover'
+                            className='item-hover'
                             target='_blank'
                             rel='noopener noreferrer'
                             href={project.site ?? project.github}
                         >
-                            <WebsiteSVG theme={theme} />
+                            <WebsiteSVG />
                         </a>
                     </div>
                 </div>

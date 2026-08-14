@@ -1,7 +1,6 @@
 import Glow from '../../components/glow';
 import GithubSVG from '../../components/svg/github.svg';
 import WebsiteSVG from '../../components/svg/website.svg';
-import { useColorScheme } from '../../hooks/use_color_scheme';
 import type { ProjectHighlighted } from '../../types/projects.types';
 
 export default function ProjectHighlighted({
@@ -9,8 +8,6 @@ export default function ProjectHighlighted({
 }: {
     project: ProjectHighlighted;
 }) {
-    const [theme, _toggleTheme] = useColorScheme();
-
     return (
         <div
             data-name='project-highlighted'
@@ -72,20 +69,20 @@ export default function ProjectHighlighted({
                         className='w-full h-5 flex flex-row justify-center gap-6'
                     >
                         <a
-                            className='text-nowrap text-accent text-sm font-bold item-hover'
+                            className='item-hover'
                             target='_blank'
                             rel='noopener noreferrer'
                             href={project.github}
                         >
-                            <GithubSVG theme={theme} />
+                            <GithubSVG />
                         </a>
                         <a
-                            className='text-nowrap text-accent text-sm font-bold item-hover'
+                            className='item-hover'
                             target='_blank'
                             rel='noopener noreferrer'
                             href={project.site ?? project.github}
                         >
-                            <WebsiteSVG theme={theme} />
+                            <WebsiteSVG />
                         </a>
                     </div>
                 </div>

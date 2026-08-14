@@ -6,6 +6,7 @@ export default function Hero() {
     return (
         <section
             data-name='hero-section'
+            id='hero-section'
             className='w-full h-screen flex flex-col justify-end pl-10 pb-60 gap-4'
         >
             <div className='flex flex-col flex-nowrap gap-4'>
@@ -30,7 +31,7 @@ export default function Hero() {
                 <button
                     className={`cta-button ${theme === 'dark' ? 'text-text ring-text' : 'text-primary'}`}
                 >
-                    Resume
+                    Download Resume
                 </button>
             </div>
         </section>
