@@ -6,21 +6,32 @@ export default function Hero() {
     return (
         <section
             data-name='hero-section'
-            className='w-full h-screen flex items-end pb-60'
+            className='w-full h-screen flex flex-col justify-end pl-10 pb-60 gap-4'
         >
-            <div className='flex flex-col flex-nowrap gap-4 pl-10'>
+            <div className='flex flex-col flex-nowrap gap-4'>
                 <h3
                     className={`text-6xl ${theme === 'dark' ? 'text-text' : 'text-primary'} font-medium font-heading`}
                 >
                     Full-Stack Developer
                 </h3>
                 <p className='text-lg max-w-lg text-text font-light'>
-                    I build web applications from the ground up — thoughtful
-                    frontends in React and Next.js, solid backends with Node and
-                    PostgreSQL, and everything in between. Six years of personal
-                    projects have given me a genuine love for the full spectrum
-                    of the stack.
+                    I build functional, technically diverse web applications,
+                    from real-time platforms to custom engines.
                 </p>
+            </div>
+            <div className='flex flex-row gap-4'>
+                <a href='#projects-section'>
+                    <button
+                        className={`cta-button ${theme === 'dark' ? 'bg-text ring-text' : 'bg-primary'}`}
+                    >
+                        View Projects
+                    </button>
+                </a>
+                <button
+                    className={`cta-button ${theme === 'dark' ? 'text-text ring-text' : 'text-primary'}`}
+                >
+                    Resume
+                </button>
             </div>
         </section>
     );

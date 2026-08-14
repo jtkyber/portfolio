@@ -6,8 +6,7 @@ import { render } from './smoke_effect/renderer';
 import campingScene from './assets/camping_theme/camp_scene.png';
 import campingSceneDay from './assets/camping_theme/camp_scene_day.png';
 import moon from './assets/camping_theme/moon.png';
-import sun from './assets/camping_theme/sun.png';
-import pine from './assets/camping_theme/pine2.png';
+import pine from './assets/camping_theme/pine.png';
 import { useColorScheme } from './hooks/use_color_scheme';
 import Skills from './sections/skills';
 import About from './sections/about';
@@ -15,7 +14,7 @@ import DuotoneFilter from './components/svg/duotone_filter';
 
 function App() {
     const hasRun = useRef(false);
-    const [theme, toggleTheme] = useColorScheme();
+    const [theme, _toggleTheme] = useColorScheme();
 
     useEffect(() => {
         if (hasRun.current) return;
@@ -24,7 +23,6 @@ function App() {
 
         hasRun.current = true;
     }, []);
-    //
 
     return (
         <div
@@ -37,13 +35,13 @@ function App() {
             >
                 <div className='absolute top-0 right-0 w-250 h-250 -m-110'>
                     <div className='absolute -z-1 w-full h-full rounded-full radial-exp opacity-100'></div>
-                    <img
-                        src={theme === 'dark' ? moon : sun}
-                        alt='Moon or sun'
-                        className='absolute w-30 h-auto top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 cursor-pointer'
-                        onClick={toggleTheme}
-                        style={{ opacity: theme === 'light' ? '0%' : '100%' }}
-                    />
+                    {theme === 'dark' ? (
+                        <img
+                            src={moon}
+                            alt='Moon'
+                            className='absolute w-30 h-auto top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 cursor-pointer'
+                        />
+                    ) : null}
                 </div>
             </div>
 
@@ -51,7 +49,7 @@ function App() {
                 <DuotoneFilter
                     id='duotone-tree-dark'
                     shadow='#06090e'
-                    highlight='#161e2d'
+                    highlight='#1c273a'
                 />
                 {theme === 'light' ? (
                     <>
@@ -71,12 +69,12 @@ function App() {
                         <img
                             src={pine}
                             alt='Pine Tree'
-                            className='absolute bottom-0 right-0 h-full object-cover scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2 filter-[url(#duotone-tree-dark)_contrast(0.96)]'
+                            className='absolute bottom-0 right-0 h-full object-cover scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2 filter-[url(#duotone-tree-dark)]'
                         />
                         <img
                             src={pine}
                             alt='Pine Tree'
-                            className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover filter-[url(#duotone-tree-dark)_contrast(0.96)]'
+                            className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover filter-[url(#duotone-tree-dark)]'
                         />
                     </>
                 )}
