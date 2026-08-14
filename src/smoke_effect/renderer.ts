@@ -36,10 +36,7 @@ export function render() {
         const mesh = new Mesh(gl, { geometry, program });
 
         function resize() {
-            renderer.setSize(
-                body.getBoundingClientRect().width,
-                body.getBoundingClientRect().height,
-            );
+            renderer.setSize(body.clientWidth, body.clientHeight);
 
             uniforms.iResolution.value.set(
                 gl.canvas.width,
