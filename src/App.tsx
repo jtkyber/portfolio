@@ -45,7 +45,7 @@ function App() {
                 </div>
             </div>
 
-            <div className='absolute w-full h-screen top-0'>
+            <div className='absolute w-full h-screen top-0 hidden sm:block'>
                 <DuotoneFilter
                     id='duotone-tree-dark'
                     shadow='#06090e'
@@ -56,12 +56,12 @@ function App() {
                         <img
                             src={pine}
                             alt='Pine Tree'
-                            className='absolute bottom-0 right-0 h-full object-cover scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2'
+                            className='absolute bottom-0 right-0 h-full object-cover overflow-visible scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2'
                         />
                         <img
                             src={pine}
                             alt='Pine Tree'
-                            className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover'
+                            className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover overflow-visible'
                         />
                     </>
                 ) : (
@@ -69,12 +69,12 @@ function App() {
                         <img
                             src={pine}
                             alt='Pine Tree'
-                            className='absolute bottom-0 right-0 h-full object-cover scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2 filter-[url(#duotone-tree-dark)]'
+                            className='absolute bottom-0 right-0 h-full object-cover overflow-visible scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2 filter-[url(#duotone-tree-dark)]'
                         />
                         <img
                             src={pine}
                             alt='Pine Tree'
-                            className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover filter-[url(#duotone-tree-dark)]'
+                            className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover overflow-visible filter-[url(#duotone-tree-dark)]'
                         />
                     </>
                 )}
@@ -102,7 +102,7 @@ function App() {
 
             <div
                 data-name='contents'
-                className='relative px-8 flex flex-col max-w-max-body-w mb-80'
+                className='relative w-full px-8 flex flex-col max-w-max-body-w mb-70'
             >
                 <Hero />
 

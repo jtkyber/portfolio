@@ -202,7 +202,7 @@ canvas {
 }
 
 @utility surface-styles {
-    @apply shadow-lg shadow-black/30 ring-1 ring-text/20 bg-surface/0 rounded-md;
+    @apply shadow-lg shadow-black/20 ring-1 ring-text/20 bg-surface/0 rounded-md;
 }
 
 @utility item-hover {
@@ -210,7 +210,7 @@ canvas {
 }
 
 @utility cta-button {
-    @apply relative overflow-hidden ring-1 ring-primary px-3 py-2 rounded-md text-background text-base font-medium cursor-pointer z-1 item-hover;
+    @apply w-fit h-full relative overflow-hidden ring-1 ring-primary px-3 py-2 rounded-md text-background text-base font-medium cursor-pointer z-1 item-hover;
 }
 
 section {

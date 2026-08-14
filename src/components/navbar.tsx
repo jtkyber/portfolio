@@ -12,9 +12,9 @@ export default function Navbar() {
                 data-name='navbar'
                 className='w-full max-w-max-body-w h-full flex items-center justify-between px-6 m-auto'
             >
-                <div data-name='left' className=''>
+                <div data-name='left' className='hidden sm:block'>
                     <a href='#hero-section'>
-                        <h1 className='text-text text-3xl font-normal font-body tracking-wide'>
+                        <h1 className='text-text text-2xl font-normal font-body text-nowrap tracking-wide'>
                             Joey Kyber
                         </h1>
                     </a>
@@ -22,16 +22,25 @@ export default function Navbar() {
 
                 <div
                     data-name='right'
-                    className='flex flex-row cursor-pointer gap-4 items-center'
+                    className='w-full flex flex-row cursor-pointer gap-4 items-center justify-between sm:justify-end'
                 >
-                    <div className='text-sm text-text/90 font-semibold'>
-                        <a href='#projects-section' className='p-4 item-hover'>
+                    <div className='text-sm text-text/90 font-semibold order-1 sm:order-0'>
+                        <a
+                            href='#projects-section'
+                            className='p-2 sm:p-4 item-hover'
+                        >
                             Projects
                         </a>
-                        <a href='#skills-section' className='p-4 item-hover'>
+                        <a
+                            href='#skills-section'
+                            className='p-2 sm:p-4 item-hover'
+                        >
                             Skills
                         </a>
-                        <a href='#about-section' className='p-4 item-hover'>
+                        <a
+                            href='#about-section'
+                            className='p-2 sm:p-4 item-hover'
+                        >
                             About
                         </a>
                     </div>

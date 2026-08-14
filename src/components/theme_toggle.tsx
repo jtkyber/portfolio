@@ -10,7 +10,7 @@ export default function ThemeToggle() {
     return (
         <button
             role='switch'
-            className={`relative w-13 h-6.5 ring-2 ring-text rounded-full z-1 p-1.5 cursor-pointer flex flex-row items-center justify-between`}
+            className={`relative w-12 sm:w-13 h-6 sm:h-6.5 ring-2 ring-text rounded-full z-1 p-1.5 cursor-pointer flex flex-row items-center justify-between shrink-0`}
             onClick={toggleColorScheme}
         >
             <div
