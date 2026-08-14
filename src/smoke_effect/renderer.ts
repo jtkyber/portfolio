@@ -9,10 +9,13 @@ export function render() {
     {
         const body = document.body;
 
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
         const renderer = new Renderer({
             alpha: true,
             premultipliedAlpha: true,
             webgl: 2,
+            dpr,
         });
         const gl = renderer.gl;
         gl.enable(gl.BLEND);
@@ -41,11 +44,11 @@ export function render() {
             uniforms.iResolution.value.set(
                 gl.canvas.width,
                 gl.canvas.height,
-                1,
+                renderer.dpr,
             );
         }
 
-        window.addEventListener('resize', resize, false);
+        window.visualViewport?.addEventListener('resize', resize, false);
         resize();
 
         const html = document.documentElement;
