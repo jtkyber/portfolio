@@ -11,6 +11,7 @@ precision highp float;
 uniform float iTime;       // elapsed time, seconds
 uniform vec3  iResolution; // x/y: canvas size in device pixels, z: device pixel ratio
 uniform float isLightMode; // 0 = dark mode (roaring fire), 1 = light mode (put out, smoking)
+uniform float referenceHeight;
 
 out vec4 fragColor;
 
@@ -142,32 +143,35 @@ void main() {
     // every pixel-based tunable in this file means the same physical size on
     // any screen.
     float pixelRatio = iResolution.z > 0.0 ? iResolution.z : 1.0; // guard against an unset uniform
+    vec2  resolution = iResolution.xy / pixelRatio;
+    float referenceHeight = referenceHeight;
+    float uiScale = resolution.y / referenceHeight;
     vec2  fragCoord   = gl_FragCoord.xy / pixelRatio;
 
     // Shift the fire's base up so it sits on top of a campfire graphic;
     // pixels below the new base are fully transparent.
-    float fireBaseOffset = 110.0; // px — tune to line up with your background art
+    float fireBaseOffset = 110.0 * uiScale; // px — tune to line up with your background art
     fragCoord.y -= fireBaseOffset;
     if (fragCoord.y < 0.0) {
         fragColor = vec4(0.0);
         return;
     }
 
-    vec2  resolution = iResolution.xy / pixelRatio;
+    
     float time = iTime;
     float effectiveHeight = resolution.y - fireBaseOffset;
     float heightFrac = fragCoord.y / effectiveHeight; // 0 at the base, 1 at the canvas top
 
     // Vertical fade: in dark mode the flame reaches ~300px before fading; in
     // light mode ("put out") it's suppressed almost to nothing at the base.
-    float fadeHeight = max(mix(300.0, 0.0, isLightMode), 1e-4); // px; epsilon avoids /0
+    float fadeHeight = max(mix(300.0, 0.0, isLightMode), 1e-4) * uiScale; // px; epsilon avoids /0
     float yFade          = fragCoord.y / fadeHeight;
     float flameFalloff   = clamp(2.0 - yFade, 0.0, 1.0); // soft ceiling above the fade band
     float yFadeClamped   = min(yFade, 1.0);
     float yFadeRemaining = 1.0 - yFadeClamped;
 
     // Horizontal falloff: 1.0 on the fire's centerline, 0.0 past its width.
-    float fireWidthPx    = 200.0; // px — desired fire width, tune to taste
+    float fireWidthPx    = 200.0 * uiScale; // px — desired fire width, tune to taste
     float fireCenterX    = resolution.x * 0.5; // or any fixed screen position
     float distFromCenter = fragCoord.x - fireCenterX;
     float fireXFuel = falloffFromCenter(distFromCenter, fireWidthPx);
@@ -220,7 +224,7 @@ void main() {
     // tongues, confined to a thin band near the fire's base.
     float baseTongueScale  = 0.015;
     float baseFlickerSpeed = 0.6;
-    float baseBandHeight   = 90.0; // px — height of the jagged zone
+    float baseBandHeight   = 90.0 * uiScale; // px — height of the jagged zone
 
     float baseMask = 1.0;
     if (fragCoord.y < baseBandHeight) {
@@ -263,7 +267,7 @@ void main() {
 
     // Sparks
     float sparkSpeed    = 100.0;
-    float sparkGridSize = 13.0;
+    float sparkGridSize = 13.0 * uiScale;
     vec2  sparkFlow  = vec2(flow.x * 0.35, flow.y);
     vec2  sparkCoord = noiseFragCoord - vec2(0.0, sparkSpeed * scaledTime);
 
@@ -319,7 +323,7 @@ void main() {
     }
 
     // Confine stars to the upper sky, fading out near the fire.
-    float skyMask   = smoothstep(100.0, 360.0, noiseFragCoord.y);
+    float skyMask   = smoothstep(115.0 * uiScale, 375.0 * uiScale, noiseFragCoord.y);
     vec3  starLayer = stars(fragCoord, time, skyMask);
 
     vec3  fireSparksStars = max(fire, sparks) + mix(starLayer, vec3(0.0), isLightMode);

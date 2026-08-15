@@ -26,6 +26,7 @@ export function render() {
             iTime: { value: 0 },
             iResolution: { value: new Vec3() },
             isLightMode: { value: 0 },
+            referenceHeight: { value: document.documentElement.clientHeight },
         };
 
         const geometry = new Triangle(gl);
@@ -50,6 +51,8 @@ export function render() {
                 gl.canvas.height,
                 renderer.dpr,
             );
+
+            uniforms.referenceHeight.value = clientHeight;
         }
 
         const ro = new ResizeObserver(resize);
