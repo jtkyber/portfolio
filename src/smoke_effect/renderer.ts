@@ -39,7 +39,11 @@ export function render() {
         const mesh = new Mesh(gl, { geometry, program });
 
         function resize() {
-            renderer.setSize(body.clientWidth, body.clientHeight);
+            const { clientWidth, clientHeight } =
+                gl.canvas.parentElement ?? document.documentElement;
+
+            renderer.dpr = Math.min(window.devicePixelRatio || 1, 2);
+            renderer.setSize(clientWidth, clientHeight);
 
             uniforms.iResolution.value.set(
                 gl.canvas.width,
@@ -48,7 +52,8 @@ export function render() {
             );
         }
 
-        window.visualViewport?.addEventListener('resize', resize, false);
+        const ro = new ResizeObserver(resize);
+        ro.observe(document.documentElement);
         resize();
 
         const html = document.documentElement;
