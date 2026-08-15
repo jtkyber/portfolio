@@ -26,7 +26,6 @@ export function render() {
             iTime: { value: 0 },
             iResolution: { value: new Vec3() },
             isLightMode: { value: 0 },
-            referenceHeight: { value: document.documentElement.clientHeight },
         };
 
         const geometry = new Triangle(gl);
@@ -39,11 +38,19 @@ export function render() {
 
         const mesh = new Mesh(gl, { geometry, program });
 
+        const maxDim = Math.min(
+            gl.getParameter(gl.MAX_TEXTURE_SIZE),
+            gl.getParameter(gl.MAX_RENDERBUFFER_SIZE),
+            gl.getParameter(gl.MAX_VIEWPORT_DIMS)[1],
+        );
+
         function resize() {
-            const { clientWidth, clientHeight } =
-                gl.canvas.parentElement ?? document.documentElement;
+            const { clientWidth, clientHeight } = body;
 
             renderer.dpr = Math.min(window.devicePixelRatio || 1, 2);
+            if (clientHeight * renderer.dpr > maxDim)
+                renderer.dpr = maxDim / clientHeight;
+
             renderer.setSize(clientWidth, clientHeight);
 
             uniforms.iResolution.value.set(
@@ -51,12 +58,10 @@ export function render() {
                 gl.canvas.height,
                 renderer.dpr,
             );
-
-            uniforms.referenceHeight.value = clientHeight;
         }
 
         const ro = new ResizeObserver(resize);
-        ro.observe(document.documentElement);
+        ro.observe(body);
         resize();
 
         const html = document.documentElement;
