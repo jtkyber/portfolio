@@ -66,9 +66,9 @@
 }
 
 body {
+    position: relative;
     margin: auto;
     box-sizing: border-box;
-    position: relative;
 
     background-image: linear-gradient(
         to bottom,
@@ -95,10 +95,10 @@ body {
 
 canvas {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    left: 0;
     bottom: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: -2;
 }
 
