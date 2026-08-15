@@ -7,6 +7,10 @@ export function render() {
     const FRAME_INTERVAL = 1000 / TARGET_FPS;
     let lastFrameTime = 0;
     {
+        const reduceMotion = window.matchMedia(
+            '(prefers-reduced-motion: reduce)',
+        ).matches;
+
         const body = document.body;
 
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -86,7 +90,7 @@ export function render() {
             if (t - lastFrameTime < FRAME_INTERVAL) return;
             lastFrameTime = t;
 
-            uniforms.iTime.value = t * 0.001;
+            uniforms.iTime.value = t * 0.001 * (reduceMotion ? 0.1 : 1);
             renderer.render({ scene: mesh });
         }
         requestAnimationFrame(update);
