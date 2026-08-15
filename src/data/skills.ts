@@ -39,7 +39,7 @@ export const skillsByCat: SkillsByCategory[] = [
             },
             {
                 name: 'Tailwind CSS',
-                level: 'proficient',
+                level: 'core',
             },
             {
                 name: 'SCSS',
