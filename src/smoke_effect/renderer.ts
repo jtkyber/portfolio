@@ -1,6 +1,7 @@
 import { Mesh, Program, Renderer, Triangle, Vec3 } from 'ogl';
 import vertexShader from './shader.vert';
 import fragmentShader from './shader.frag';
+import { isWebkit } from '../utils';
 
 export function render() {
     const TARGET_FPS = 30;
@@ -72,11 +73,18 @@ export function render() {
         const hasDarkClass = html.classList.contains('dark');
         uniforms.isLightMode.value = hasDarkClass ? 0.0 : 1.0;
 
+        const forceLayoutPass = () => {
+            document.documentElement.style.width = 'calc(100% - 1px)';
+            void document.documentElement.offsetHeight;
+            document.documentElement.style.width = '';
+        };
+
         const mutationObserver = new MutationObserver((mutationList) => {
             for (const item of mutationList) {
                 if (item.attributeName === 'class') {
                     const hasDarkClass = html.classList.contains('dark');
                     uniforms.isLightMode.value = hasDarkClass ? 0.0 : 1.0;
+                    if (isWebkit()) forceLayoutPass();
                     break;
                 }
             }
@@ -89,7 +97,6 @@ export function render() {
 
             if (t - lastFrameTime < FRAME_INTERVAL) return;
             lastFrameTime = t;
-
             uniforms.iTime.value = t * 0.001 * (reduceMotion ? 0.1 : 1);
             renderer.render({ scene: mesh });
         }
