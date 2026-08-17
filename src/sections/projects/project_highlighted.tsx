@@ -23,7 +23,7 @@ export default function ProjectHighlighted({
                     data-name='tag-container'
                     className='w-full flex justify-end'
                 >
-                    <h5 className={`custom-tag p-0 text-accent/90`}>
+                    <h5 className={`custom-tag bg-accent/15 text-accent`}>
                         {project.tag}
                     </h5>
                 </div>
@@ -34,9 +34,10 @@ export default function ProjectHighlighted({
                 >
                     <div className='relative w-full h-full'>
                         <img
-                            src={`assets/projects/${project.image}`}
+                            src={`assets/projects/${project.image}.webp`}
                             alt='Project Image'
                             className='absolute w-full h-full object-cover opacity-100'
+                            loading='lazy'
                         />
                     </div>
                 </div>
@@ -58,7 +59,7 @@ export default function ProjectHighlighted({
                         {project.tech.map((t) => (
                             <h5
                                 key={`${project.id}-${t}`}
-                                className='custom-tag relative border-2 border-primary text-primary text-nowrap'
+                                className='custom-tag relative bg-primary/15 border-0 border-primary text-primary text-nowrap'
                             >
                                 {t}
                             </h5>

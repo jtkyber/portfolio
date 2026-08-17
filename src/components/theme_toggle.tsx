@@ -18,10 +18,10 @@ export default function ThemeToggle() {
             ></div>
 
             <MoonSVG
-                className={`h-full w-auto ${theme === 'dark' ? 'fill-surface' : 'fill-text'}`}
+                className={`h-full w-auto ${theme === 'dark' ? 'fill-background' : 'fill-text'}`}
             />
             <SunSVG
-                className={`h-full w-auto ${theme === 'dark' ? 'fill-text' : 'fill-surface'}`}
+                className={`h-full w-auto ${theme === 'dark' ? 'fill-text' : 'fill-background'}`}
             />
         </button>
     );

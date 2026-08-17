@@ -23,13 +23,15 @@ export default function ProjectOther({ project }: { project: ProjectOther }) {
                         data-name='tag-container'
                         className='w-full flex flex-col justify-start gap-1'
                     >
-                        <h5 className={`custom-tag p-0 text-accent/90`}>
+                        <h5
+                            className={`custom-tag bg-accent/15 text-accent w-fit`}
+                        >
                             {project.tag}
                         </h5>
 
                         {project?.inProgress ? (
                             <h5
-                                className={`custom-tag p-0 text-primary/90 text-nowrap`}
+                                className={`custom-tag bg-primary/10 text-primary text-nowrap`}
                             >
                                 In Progress
                             </h5>

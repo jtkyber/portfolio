@@ -5,8 +5,9 @@ import Projects from './sections/projects';
 import { render } from './smoke_effect/renderer';
 import campingScene from './assets/camping_theme/camp_scene.png';
 import campingSceneDay from './assets/camping_theme/camp_scene_day.png';
-import moon from './assets/camping_theme/moon.png';
-import pine from './assets/camping_theme/pine.png';
+import moon from './assets/camping_theme/moon.webp';
+import pine from './assets/camping_theme/pine2.webp';
+import pine_dark from './assets/camping_theme/pine2_dark.webp';
 import { useColorScheme } from './hooks/use_color_scheme';
 import Skills from './sections/skills';
 import About from './sections/about';
@@ -29,21 +30,22 @@ function App() {
             data-name='app-container'
             className='relative flex w-full justify-center font-body'
         >
-            <div
-                data-name='moon-container'
-                className='absolute top-24 right-1/10 w-full flex justify-end p-8 select-none'
-            >
-                <div className='absolute top-0 right-0 w-250 h-250 -m-110'>
-                    <div className='absolute -z-1 w-full h-full rounded-full radial-exp opacity-100'></div>
-                    {theme === 'dark' ? (
+            {theme === 'dark' ? (
+                <div
+                    data-name='moon-container'
+                    className='absolute top-24 right-1/10 w-full flex justify-end p-8 select-none'
+                >
+                    <div className='absolute top-0 right-0 w-250 h-250 -m-110'>
+                        <div className='absolute w-full h-full rounded-full radial-exp opacity-100'></div>
+
                         <img
                             src={moon}
                             alt='Moon'
-                            className='absolute w-30 h-auto top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 cursor-pointer'
+                            className='absolute w-30 h-auto top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2'
                         />
-                    ) : null}
+                    </div>
                 </div>
-            </div>
+            ) : null}
 
             <div className='absolute w-full h-screen top-0 hidden sm:block'>
                 <DuotoneFilter
@@ -51,33 +53,39 @@ function App() {
                     shadow='#06090e'
                     highlight='#1c273a'
                 />
-                {theme === 'light' ? (
-                    <>
-                        <img
-                            src={pine}
-                            alt='Pine Tree'
-                            className='absolute bottom-0 right-0 h-full object-cover overflow-visible scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2'
-                        />
-                        <img
-                            src={pine}
-                            alt='Pine Tree'
-                            className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover overflow-visible'
-                        />
-                    </>
-                ) : (
-                    <>
-                        <img
-                            src={pine}
-                            alt='Pine Tree'
-                            className='absolute bottom-0 right-0 h-full object-cover overflow-visible scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2 filter-[url(#duotone-tree-dark)]'
-                        />
-                        <img
-                            src={pine}
-                            alt='Pine Tree'
-                            className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover overflow-visible filter-[url(#duotone-tree-dark)]'
-                        />
-                    </>
-                )}
+
+                <DuotoneFilter
+                    id='duotone-tree-light'
+                    shadow='#23201b'
+                    highlight='#4a654d'
+                />
+
+                <div className={theme === 'light' ? 'block' : 'hidden'}>
+                    <img
+                        src={pine}
+                        alt='Pine Tree'
+                        className='absolute bottom-0 right-0 h-full object-cover overflow-visible scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2'
+                    />
+                    <img
+                        src={pine}
+                        alt='Pine Tree'
+                        className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover overflow-visible'
+                    />
+                </div>
+                <div className={theme === 'dark' ? 'block' : 'hidden'}>
+                    <img
+                        src={pine_dark}
+                        alt='Pine Tree'
+                        className='absolute bottom-0 right-0 h-full object-cover overflow-visible scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2'
+                        loading='eager'
+                    />
+                    <img
+                        src={pine_dark}
+                        alt='Pine Tree'
+                        className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover overflow-visible'
+                        loading='eager'
+                    />
+                </div>
             </div>
 
             <div className='w-full absolute bottom-0 flex justify-center -z-3 -mb-20'>

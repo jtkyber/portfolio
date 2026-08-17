@@ -21,26 +21,26 @@
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
 
-    --background: #ede9e1;
-    --sky: #d9dcdb;
-    --surface: #e2dbd0;
-    --primary: #48654c;
-    --accent: #c4714a;
+    --background: #f3f4f0;
+    --sky: #f3f4f0;
+    --surface: rgba(255, 255, 251, 0.2);
+    --primary: #426b4b;
+    --accent: #8b423c;
     --text: #1e1a14;
-    --sun-moon-glow: white;
+    --sun-moon-glow: #fffbef;
     --fire-glow: transparent;
 
     --nav-height: 4rem;
 }
 
 :root.dark {
-    --background: #111827;
-    --sky: #071523;
-    --surface: #1a2436;
-    --primary: #6fa87a;
-    --accent: #d4845a;
+    --background: #0b1522;
+    --sky: #0b1522;
+    --surface: rgba(15, 29, 46, 0);
+    --primary: #36af8d;
+    --accent: #ff8e4f;
     --accent-highlight: hsl(23, 59%, 20%);
-    --text: #e8edf5;
+    --text: #e8edf1;
     --sun-moon-glow: #e8edf550;
     --fire-glow: rgba(217, 90, 22, 0.5);
 }
@@ -52,6 +52,7 @@
     --color-accent: var(--accent);
     --color-accent-highlight: var(--accent-highlight);
     --color-text: var(--text);
+    --color-sun-moon-glow: var(--sun-moon-glow);
 
     --spacing-nav-height: 4rem;
     --spacing-section-gap: 2rem;
@@ -205,7 +206,7 @@ canvas {
 }
 
 @utility surface-styles {
-    @apply shadow-lg shadow-black/20 ring-1 ring-text/20 bg-surface/0 rounded-md;
+    @apply shadow-lg shadow-black/20 ring-1 ring-text/20 bg-surface rounded-md;
 }
 
 @utility item-hover {

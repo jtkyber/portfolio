@@ -22,13 +22,14 @@ export default function About() {
                 <div className='h-full w-full max-w-70 sm:w-[35%] flex flex-col justify-between gap-4 '>
                     <DuotoneFilter
                         id='duotone-dark'
-                        shadow={theme === 'dark' ? '#12161c' : '#252018'}
+                        shadow={theme === 'dark' ? '#12161c' : '#23221a'}
                         highlight={theme === 'dark' ? '#ffffff' : '#ffffff'}
                     />
                     <img
                         src={profile}
                         alt='Profile Picture'
-                        className={`object-cover rounded-full filter-[url(#duotone-dark)_contrast(1.05)_brightness(1.1)] ring-1 ring-text/30`}
+                        className={`object-cover rounded-full filter-[url(#duotone-dark)_contrast(1.05)_brightness(1.10)] ring-1 ring-text/30`}
+                        loading='lazy'
                     />
 
                     <Contact className='hidden sm:flex' />
