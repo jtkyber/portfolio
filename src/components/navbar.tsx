@@ -2,12 +2,7 @@ import ThemeToggle from './theme_toggle';
 
 export default function Navbar() {
     return (
-        <div className='sticky inset-0 w-full h-nav-height z-100 after:content-[""] after:inset-0 after:absolute after:w-full after:h-full after:-z-1'>
-            <div
-                data-name='blur-layer'
-                className='absolute -z-1 inset-0 w-full h-full bg-background shadow-lg shadow-black/15 opacity-100'
-            ></div>
-
+        <div className='sticky inset-0 w-full h-nav-height z-100 surface-styles bg-background shadow-black/10 rounded-none'>
             <nav
                 data-name='navbar'
                 className='w-full max-w-max-body-w h-full flex items-center justify-between px-6 m-auto'

@@ -30,7 +30,7 @@
     --sun-moon-glow: #fffbef;
     --fire-glow: transparent;
 
-    --nav-height: 4rem;
+    --nav-height: 3.5rem;
 }
 
 :root.dark {
@@ -54,7 +54,7 @@
     --color-text: var(--text);
     --color-sun-moon-glow: var(--sun-moon-glow);
 
-    --spacing-nav-height: 4rem;
+    --spacing-nav-height: var(--nav-height);
     --spacing-section-gap: 2rem;
     --spacing-max-body-w: 80rem;
 
@@ -206,7 +206,7 @@ canvas {
 }
 
 @utility surface-styles {
-    @apply shadow-lg shadow-black/20 ring-1 ring-text/20 bg-surface rounded-md;
+    @apply shadow-[-0.0rem_0.2rem_0.5rem_rgba(0,0,0,0.2)] ring-1 ring-text/20 bg-surface rounded-md;
 }
 
 @utility item-hover {
