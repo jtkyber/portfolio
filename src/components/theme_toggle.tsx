@@ -3,9 +3,9 @@ import MoonSVG from './svg/moon.svg';
 import SunSVG from './svg/sun.svg';
 
 export default function ThemeToggle() {
-    const [theme, toggleTheme] = useColorScheme();
+    const [darkMode, toggleDarkMode] = useColorScheme();
 
-    const toggleColorScheme = () => toggleTheme();
+    const toggleColorScheme = () => toggleDarkMode();
 
     return (
         <button
@@ -14,14 +14,14 @@ export default function ThemeToggle() {
             onClick={toggleColorScheme}
         >
             <div
-                className={`absolute inset-0 w-1/2 aspect-square rounded-full bg-text -z-1 ${theme === 'dark' ? 'translate-x-0' : 'translate-x-full'} scale-80 will-change-transform transition-transform duration-150 ease-out`}
+                className={`absolute inset-0 w-1/2 aspect-square rounded-full bg-text -z-1 ${darkMode ? 'translate-x-0' : 'translate-x-full'} scale-80 will-change-transform transition-transform duration-150 ease-out`}
             ></div>
 
             <MoonSVG
-                className={`h-full w-auto ${theme === 'dark' ? 'fill-background' : 'fill-text'}`}
+                className={`h-full w-auto ${darkMode ? 'fill-background' : 'fill-text'}`}
             />
             <SunSVG
-                className={`h-full w-auto ${theme === 'dark' ? 'fill-text' : 'fill-background'}`}
+                className={`h-full w-auto ${darkMode ? 'fill-text' : 'fill-background'}`}
             />
         </button>
     );

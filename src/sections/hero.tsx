@@ -1,7 +1,7 @@
 import { useColorScheme } from '../hooks/use_color_scheme';
 
 export default function Hero() {
-    const [theme, _toggleTheme] = useColorScheme();
+    const [darkMode, _toggleDarkMode] = useColorScheme();
 
     return (
         <section
@@ -15,7 +15,7 @@ export default function Hero() {
                         Joey Kyber
                     </h3>
                     <h2
-                        className={`text-5xl sm:text-6xl ${theme === 'dark' ? 'text-text' : 'text-primary'} font-medium font-heading`}
+                        className={`text-5xl sm:text-6xl ${darkMode ? 'text-text' : 'text-primary'} font-medium font-heading`}
                     >
                         Full-Stack Developer
                     </h2>
@@ -28,13 +28,13 @@ export default function Hero() {
                 <div className='flex flex-row gap-4'>
                     <a href='#projects-section'>
                         <button
-                            className={`cta-button ${theme === 'dark' ? 'bg-text ring-text' : 'bg-primary'}`}
+                            className={`cta-button ${darkMode ? 'bg-text ring-text' : 'bg-primary'}`}
                         >
                             View Projects
                         </button>
                     </a>
                     <button
-                        className={`cta-button ${theme === 'dark' ? 'text-text ring-text' : 'text-primary'}`}
+                        className={`cta-button ${darkMode ? 'text-text ring-text' : 'text-primary'}`}
                     >
                         Download Resume
                     </button>

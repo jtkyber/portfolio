@@ -15,7 +15,7 @@ import DuotoneFilter from './components/svg/duotone_filter';
 
 function App() {
     const hasRun = useRef(false);
-    const [theme, _toggleTheme] = useColorScheme();
+    const [darkMode, _toggleDarkMode] = useColorScheme();
 
     useEffect(() => {
         if (hasRun.current) return;
@@ -30,7 +30,7 @@ function App() {
             data-name='app-container'
             className='relative flex w-full justify-center font-body'
         >
-            {theme === 'dark' ? (
+            {darkMode ? (
                 <div
                     data-name='moon-container'
                     className='absolute top-24 right-1/10 w-full flex justify-end p-8 select-none'
@@ -60,7 +60,7 @@ function App() {
                     highlight='#4a654d'
                 />
 
-                <div className={theme === 'light' ? 'block' : 'hidden'}>
+                <div className={darkMode ? 'hidden' : 'block'}>
                     <img
                         src={pine}
                         alt='Pine Tree'
@@ -72,7 +72,8 @@ function App() {
                         className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover overflow-visible'
                     />
                 </div>
-                <div className={theme === 'dark' ? 'block' : 'hidden'}>
+
+                <div className={darkMode ? 'block' : 'hidden'}>
                     <img
                         src={pine_dark}
                         alt='Pine Tree'
@@ -89,17 +90,17 @@ function App() {
             </div>
 
             <div className='w-full absolute bottom-0 flex justify-center -z-3 -mb-20'>
-                {theme === 'light' ? (
-                    <img
-                        src={campingSceneDay}
-                        alt='Camping Scene Sunrise'
-                        className='w-400 object-cover max-w-none mask-[linear-gradient(to_bottom,transparent,black_50%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_50%)]'
-                    />
-                ) : (
+                {darkMode ? (
                     <img
                         src={campingScene}
                         alt='Camping Scene'
                         className='w-400 object-cover max-w-none mask-[linear-gradient(to_bottom,transparent,black_15%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%)]'
+                    />
+                ) : (
+                    <img
+                        src={campingSceneDay}
+                        alt='Camping Scene Sunrise'
+                        className='w-400 object-cover max-w-none mask-[linear-gradient(to_bottom,transparent,black_50%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_50%)]'
                     />
                 )}
             </div>

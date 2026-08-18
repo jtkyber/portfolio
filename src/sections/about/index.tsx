@@ -6,7 +6,7 @@ import { useColorScheme } from '../../hooks/use_color_scheme';
 import Contact from './contact';
 
 export default function About() {
-    const [theme, _toggleTheme] = useColorScheme();
+    const [darkMode, _toggleDarkMode] = useColorScheme();
 
     return (
         <section
@@ -22,8 +22,8 @@ export default function About() {
                 <div className='h-full w-full max-w-70 sm:w-[35%] flex flex-col justify-between gap-4 '>
                     <DuotoneFilter
                         id='duotone-dark'
-                        shadow={theme === 'dark' ? '#12161c' : '#23221a'}
-                        highlight={theme === 'dark' ? '#ffffff' : '#ffffff'}
+                        shadow={darkMode ? '#12161c' : '#23221a'}
+                        highlight={darkMode ? '#ffffff' : '#ffffff'}
                     />
                     <img
                         src={profile}
