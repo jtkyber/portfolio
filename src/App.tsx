@@ -28,12 +28,12 @@ function App() {
     return (
         <div
             data-name='app-container'
-            className='relative flex w-full justify-center font-body'
+            className='relative flex w-full justify-center font-body z-1'
         >
             {darkMode ? (
                 <div
                     data-name='moon-container'
-                    className='absolute top-24 right-1/10 w-full flex justify-end p-8 select-none'
+                    className='fixed top-20 right-1/20 w-full flex justify-end p-8 select-none'
                 >
                     <div className='absolute top-0 right-0 w-250 h-250 -m-110'>
                         <div className='absolute w-full h-full rounded-full radial-exp opacity-100'></div>
