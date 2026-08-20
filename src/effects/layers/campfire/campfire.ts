@@ -1,30 +1,33 @@
 import {
     Mesh,
     Program,
+    Renderer,
     Triangle,
     Vec3,
     type OGLRenderingContext,
-    type Renderer,
 } from 'ogl';
-import { Layer } from './layer';
-import fragmentShader from './star_shader.frag';
-import vertexShader from '../shader.vert';
+import { Layer } from '../layer';
 import type { CSSProperties } from 'react';
+import vertexShader from '../../shader.vert';
+import fragmentShader from './shader.frag';
 
-export class Stars extends Layer {
+export class Campfire extends Layer {
     gl: OGLRenderingContext;
     maxDim: number = 0;
     uniforms = {
         iTime: { value: 0 },
         iResolution: { value: new Vec3() },
         isLightMode: { value: 0 },
+        isPerformanceMode: { value: 0 },
     };
     mesh: Mesh;
     canvasStyles: CSSProperties = {
         inset: '0',
-        position: 'fixed',
+        position: 'absolute',
         width: '100vw',
-        height: '100vh',
+        height: '100%',
+        zIndex: '0',
+        pointerEvents: 'none',
     };
 
     constructor(parentEl: HTMLElement, renderer: Renderer) {

@@ -2,11 +2,11 @@ import { useEffect, useRef } from 'react';
 import Navbar from './components/navbar';
 import Hero from './sections/hero';
 import Projects from './sections/projects';
-import { render } from './smoke_effect/renderer';
-import campingScene from './assets/camping_theme/camp_scene.png';
-import campingSceneDay from './assets/camping_theme/camp_scene_day.png';
+import { render } from './effects/renderer';
+import campingScene from './assets/camping_theme/camp_scene2_3x2.png';
+import campingSceneDay from './assets/camping_theme/camp_scene_day_cleaned.png';
 import moon from './assets/camping_theme/moon.webp';
-import pine from './assets/camping_theme/pine2.webp';
+import pine from './assets/camping_theme/pine.webp';
 import pine_dark from './assets/camping_theme/pine2_dark.webp';
 import { useColorScheme } from './hooks/use_color_scheme';
 import Skills from './sections/skills';
@@ -28,7 +28,7 @@ function App() {
     return (
         <div
             data-name='app-container'
-            className='relative flex w-full justify-center font-body z-1'
+            className='relative flex w-full justify-center font-body'
         >
             {darkMode ? (
                 <div
@@ -89,12 +89,12 @@ function App() {
                 </div>
             </div>
 
-            <div className='w-full absolute bottom-0 flex justify-center -z-3 -mb-20'>
+            <div className='w-full absolute bottom-0 flex justify-center -mb-20'>
                 {darkMode ? (
                     <img
                         src={campingScene}
                         alt='Camping Scene'
-                        className='w-400 object-cover max-w-none mask-[linear-gradient(to_bottom,transparent,black_15%)] [-webkit-mask-image:linear-gradient(to_bottom,transparent,black_15%)]'
+                        className='w-400 object-cover max-w-none'
                     />
                 ) : (
                     <img
@@ -111,7 +111,7 @@ function App() {
 
             <div
                 data-name='contents'
-                className='relative w-full px-8 flex flex-col max-w-max-body-w mb-70'
+                className='relative w-full px-8 flex flex-col max-w-max-body-w mb-70 z-1'
             >
                 <Hero />
 

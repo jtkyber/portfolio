@@ -19,7 +19,7 @@ float prng(vec2 seed) {
 // Sparse twinkling starfield, confined to the sky by skyMask.
 vec3 stars(vec2 fragCoord, float time, float skyMask) {
     float starGridSize = 10.0; // px — spacing between star cells; smaller = denser
-    float starCoverage = 0.15; // fraction of cells that contain a star
+    float starCoverage = 0.25; // fraction of cells that contain a star
 
     vec2 starCell    = floor(fragCoord / starGridSize);
     vec2 starLocalUV = fract(fragCoord / starGridSize);
@@ -37,7 +37,7 @@ vec3 stars(vec2 fragCoord, float time, float skyMask) {
         float pulsePhase = 2.0 * PI * prng(starCell + 7.1);
         float twinkle    = 0.5 + 0.5 * sin(time * pulseSpeed + pulsePhase);
 
-        float brightness = starCore * mix(0.1, 0.6, twinkle);
+        float brightness = starCore * mix(0.05, 0.5, twinkle);
         brightness *= mix(0.7, 1.0, sizeRandom); // bigger stars shine a bit brighter
         return vec3(brightness) * skyMask;
     }
