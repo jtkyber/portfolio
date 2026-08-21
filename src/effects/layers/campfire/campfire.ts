@@ -34,6 +34,13 @@ export class Campfire extends Layer {
         super(parentEl, renderer);
 
         this.gl = this.renderer.gl;
+        const info = this.getRendererInfo(this.gl);
+        this.uniforms.isPerformanceMode.value = this.isLikelySoftwareRenderer(
+            info.renderer,
+        )
+            ? 1
+            : 0;
+
         this.gl.enable(this.gl.BLEND);
         this.gl.blendFunc(this.gl.ONE, this.gl.ONE_MINUS_SRC_ALPHA);
         Object.assign(this.gl.canvas.style, this.canvasStyles);
@@ -68,6 +75,8 @@ export class Campfire extends Layer {
         const { clientWidth, clientHeight } = this.parentEl;
 
         this.renderer.dpr = Math.min(window.devicePixelRatio || 1, 2);
+        if (this.uniforms.isPerformanceMode.value) this.renderer.dpr /= 5;
+        else this.renderer.dpr /= 2;
         if (clientHeight * this.renderer.dpr > this.maxDim)
             this.renderer.dpr = this.maxDim / clientHeight;
 
@@ -77,6 +86,29 @@ export class Campfire extends Layer {
             this.gl.canvas.width,
             this.gl.canvas.height,
             this.renderer.dpr,
+        );
+    };
+
+    getRendererInfo = (gl: OGLRenderingContext) => {
+        const ext = gl.getExtension('WEBGL_debug_renderer_info');
+        if (!ext) {
+            // extension unavailable (often a privacy setting) — fall back to the plain params
+            return {
+                renderer: gl.getParameter(gl.RENDERER),
+                vendor: gl.getParameter(gl.VENDOR),
+                unmasked: false,
+            };
+        }
+        return {
+            renderer: gl.getParameter(ext.UNMASKED_RENDERER_WEBGL),
+            vendor: gl.getParameter(ext.UNMASKED_VENDOR_WEBGL),
+            unmasked: true,
+        };
+    };
+
+    isLikelySoftwareRenderer = (rendererString: any) => {
+        return /swiftshader|llvmpipe|software rasterizer|microsoft basic render/i.test(
+            rendererString,
         );
     };
 }

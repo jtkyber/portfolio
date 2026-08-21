@@ -133,7 +133,7 @@ void main() {
 
     // Vertical fade: in dark mode the flame reaches ~300px before fading; in
     // light mode ("put out") it's suppressed almost to nothing at the base.
-    float fadeHeight = max(mix(300.0, 0.0, isLightMode), 1e-4); // px; epsilon avoids /0
+    float fadeHeight = max(mix(275.0, 0.0, isLightMode), 1e-4); // px; epsilon avoids /0
     float yFade          = fragCoord.y / fadeHeight;
     float flameFalloff   = clamp(2.0 - yFade, 0.0, 1.0); // soft ceiling above the fade band
     float yFadeClamped   = min(yFade, 1.0);
@@ -211,7 +211,7 @@ void main() {
     vec3 smoke = vec3(0.0, 0.0, 0.0);
     float smokeAlpha = 0.0;
 
-    if (isPerformanceMode == 0.0) {
+    if (true) {
         // Smoke
         float smokeSpeedY = 0.4;
         float smokeNoise1 = snoise(0.3 * position + timing * vec3(1.4, 1.4 * smokeSpeedY, 0.6));
