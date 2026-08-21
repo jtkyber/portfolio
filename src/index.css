@@ -1,16 +1,13 @@
 @import 'tailwindcss';
 
 @font-face {
-    font-family: 'Inter';
-    src: url('/fonts/Inter.ttf') format('truetype');
-}
-@font-face {
     font-family: 'Fraunces';
     src: url('/fonts/Fraunces.ttf') format('truetype');
 }
 @font-face {
     font-family: 'GeneralSans';
-    src: url('/fonts/GeneralSans.ttf') format('truetype');
+    src: '/home/jkyber/Downloads/favicon.png' url('/fonts/GeneralSans.ttf')
+        format('truetype');
 }
 
 :root {
