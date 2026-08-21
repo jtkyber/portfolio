@@ -3,11 +3,11 @@ import Navbar from './components/navbar';
 import Hero from './sections/hero';
 import Projects from './sections/projects';
 import { render } from './effects/renderer';
-import campingScene from './assets/camping_theme/camp_scene2_3x2.png';
-import campingSceneDay from './assets/camping_theme/camp_scene_day_cleaned.png';
+import campingSceneNight from './assets/camping_theme/camp_scene_night.webp';
+import campingSceneDay from './assets/camping_theme/camp_scene_day.webp';
 import moon from './assets/camping_theme/moon.webp';
-import pine from './assets/camping_theme/pine.webp';
-import pine_dark from './assets/camping_theme/pine2_dark.webp';
+import pine from './assets/camping_theme/pine_day.webp';
+import pine_dark from './assets/camping_theme/pine_night.webp';
 import { useColorScheme } from './hooks/use_color_scheme';
 import Skills from './sections/skills';
 import About from './sections/about';
@@ -92,7 +92,7 @@ function App() {
             <div className='w-full absolute bottom-0 flex justify-center -mb-20'>
                 {darkMode ? (
                     <img
-                        src={campingScene}
+                        src={campingSceneNight}
                         alt='Camping Scene'
                         className='w-400 object-cover max-w-none'
                     />
