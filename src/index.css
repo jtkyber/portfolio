@@ -40,6 +40,23 @@
     --text: #e8edf1;
     --sun-moon-glow: #e8edf550;
     --fire-glow: rgba(217, 90, 22, 0.5);
+
+    body {
+        background-image: none;
+        background-color: var(--background);
+    }
+}
+
+body {
+    position: relative;
+    margin: auto;
+    box-sizing: border-box;
+
+    background-image: linear-gradient(
+        to bottom,
+        var(--background) 40%,
+        var(--sky)
+    );
 }
 
 @theme inline {
@@ -63,18 +80,6 @@
     --font-heading: 'Fraunces', sans-serif;
 }
 
-body {
-    position: relative;
-    margin: auto;
-    box-sizing: border-box;
-
-    background-image: linear-gradient(
-        to bottom,
-        var(--background) 40%,
-        var(--sky)
-    );
-}
-
 #root {
     width: 100%;
     position: relative;
@@ -90,15 +95,6 @@ body {
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
-
-canvas {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100%;
-    z-index: -2;
-}
 
 @keyframes fire-flicker {
     0% {
