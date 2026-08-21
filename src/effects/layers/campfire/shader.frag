@@ -242,70 +242,10 @@ void main() {
         smokeAlpha = clamp(smokeIntensity, 0.0, 1.0);
     }
 
-    vec3 sparks = vec3(0.0);
-    if (isPerformanceMode == 0.0) {
-        // Sparks
-        float sparkSpeed    = 100.0;
-        float sparkGridSize = 13.0;
-        vec2  sparkFlow  = vec2(flow.x * 0.35, flow.y);
-        vec2  sparkCoord = noiseFragCoord - vec2(0.0, sparkSpeed * scaledTime);
+    float fireAlpha = clamp(max(fire.r, max(fire.g, fire.b)), 0.0, 1.0);
 
-        // Step timeline: each spark jumps between two random states per time-step
-        // and blends smoothly between them, instead of drifting continuously.
-        float sparkStepTime  = 6.0 * time;
-        float sparkStepIndex = floor(sparkStepTime);
-        float sparkStepBlend = smoothstep(0.0, 1.0, fract(sparkStepTime));
-
-        vec2 sparkCellId = floor(sparkCoord / sparkGridSize); // stable per-spark identity for hashing
-
-        vec2 jitterA = vec2(
-            prng(sparkCellId + vec2(sparkStepIndex,       0.0)),
-            prng(sparkCellId + vec2(sparkStepIndex,       91.7))
-        );
-        vec2 jitterB = vec2(
-            prng(sparkCellId + vec2(sparkStepIndex + 1.0, 0.0)),
-            prng(sparkCellId + vec2(sparkStepIndex + 1.0, 91.7))
-        );
-        vec2 sparkJitter = mix(jitterA, jitterB, sparkStepBlend) * 2.0 - 1.0;
-
-        sparkCoord -= 0.5 * sparkJitter;
-        sparkCoord += 50.0 * sparkFlow;
-        // Stagger alternate rows so sparks don't line up in a visible grid.
-        if (mod(sparkCoord.y / sparkGridSize, 2.0) < 1.0) sparkCoord.x += 0.5 * sparkGridSize;
-
-        vec2  sparkGridIndex = floor(sparkCoord / sparkGridSize);
-        float sparkRandom    = prng(sparkGridIndex);
-        float sparkLife = min(
-            10.0 * (1.0 - min(
-                (sparkGridIndex.y + (sparkSpeed * scaledTime / sparkGridSize)) / (30.0 - 20.0 * sparkRandom),
-                1.0)),
-            1.0);
-
-        float sparkSpread  = mix(1.0, 20.0, heightFrac); // sparks fan out as they rise
-        float sparkWidthPx = fireWidthPx * sparkSpread;
-        float sparkXFuel = falloffFromCenter(distFromCenter, sparkWidthPx);
-
-        float sparkChanceDark  = 0.30; // normal spark rate at night
-        float sparkChanceLight = 0.15; // fewer sparks when put out in daytime
-        float sparkSpawnChance = mix(sparkChanceDark, sparkChanceLight, isLightMode);
-
-        if (sparkLife > 0.0 && prng(sparkGridIndex + 13.37) < sparkSpawnChance) {
-            float sparkSize     = sparkXFuel * sparkXFuel * sparkRandom * 0.08;
-            float sparkRadians  = 999.0 * sparkRandom * 2.0 * PI + 2.0 * time;
-            vec2  sparkCircular = vec2(sin(sparkRadians), cos(sparkRadians));
-            vec2  sparkOffset   = (0.5 - sparkSize) * sparkGridSize * sparkCircular;
-            vec2  sparkModulus  = mod(sparkCoord + sparkOffset, sparkGridSize) - 0.5 * vec2(sparkGridSize);
-            float sparkLength   = length(sparkModulus);
-            float sparksGray    = max(0.0, 1.0 - sparkLength / (sparkSize * sparkGridSize));
-            sparks = sparkLife * sparksGray * vec3(1.0, 0.3, 0.0);
-        }
-    }
-
-    vec3  fireSparks = max(fire, sparks);
-    float fireSparksAlpha = clamp(max(fireSparks.r, max(fireSparks.g, fireSparks.b)), 0.0, 1.0);
-
-    float alpha = max(fireSparksAlpha, smokeAlpha);
-    vec3  color = fireSparks + smoke;
+    float alpha = max(fireAlpha, smokeAlpha);
+    vec3  color = fire + smoke;
 
     fragColor = vec4(color, alpha);
 }

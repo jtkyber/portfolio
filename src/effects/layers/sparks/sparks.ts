@@ -1,24 +1,23 @@
 import {
     Mesh,
     Program,
-    Renderer,
     Triangle,
     Vec3,
     type OGLRenderingContext,
+    type Renderer,
 } from 'ogl';
-import { Layer } from '../layer';
-import type { CSSProperties } from 'react';
-import vertexShader from '../../shader.vert';
 import fragmentShader from './shader.frag';
+import vertexShader from '../../shader.vert';
+import type { CSSProperties } from 'react';
+import { Layer } from '../layer';
 
-export class Campfire extends Layer {
+export class Sparks extends Layer {
     gl: OGLRenderingContext;
     maxDim: number = 0;
     uniforms = {
         iTime: { value: 0 },
         iResolution: { value: new Vec3() },
         isLightMode: { value: 0 },
-        isPerformanceMode: { value: 0 },
     };
     mesh: Mesh;
     canvasStyles: CSSProperties = {
@@ -34,13 +33,6 @@ export class Campfire extends Layer {
         super(parentEl, renderer);
 
         this.gl = this.renderer.gl;
-        const info = this.getRendererInfo(this.gl);
-        this.uniforms.isPerformanceMode.value = this.isLikelySoftwareRenderer(
-            info.renderer,
-        )
-            ? 1
-            : 0;
-
         this.gl.enable(this.gl.BLEND);
         this.gl.blendFunc(this.gl.ONE, this.gl.ONE_MINUS_SRC_ALPHA);
         Object.assign(this.gl.canvas.style, this.canvasStyles);
@@ -75,8 +67,6 @@ export class Campfire extends Layer {
         const { clientWidth, clientHeight } = this.parentEl;
 
         this.renderer.dpr = Math.min(window.devicePixelRatio || 1, 2);
-        if (this.uniforms.isPerformanceMode.value) this.renderer.dpr /= 6;
-        else this.renderer.dpr /= 3;
         if (clientHeight * this.renderer.dpr > this.maxDim)
             this.renderer.dpr = this.maxDim / clientHeight;
 
@@ -86,29 +76,6 @@ export class Campfire extends Layer {
             this.gl.canvas.width,
             this.gl.canvas.height,
             this.renderer.dpr,
-        );
-    };
-
-    getRendererInfo = (gl: OGLRenderingContext) => {
-        const ext = gl.getExtension('WEBGL_debug_renderer_info');
-        if (!ext) {
-            // extension unavailable (often a privacy setting) — fall back to the plain params
-            return {
-                renderer: gl.getParameter(gl.RENDERER),
-                vendor: gl.getParameter(gl.VENDOR),
-                unmasked: false,
-            };
-        }
-        return {
-            renderer: gl.getParameter(ext.UNMASKED_RENDERER_WEBGL),
-            vendor: gl.getParameter(ext.UNMASKED_VENDOR_WEBGL),
-            unmasked: true,
-        };
-    };
-
-    isLikelySoftwareRenderer = (rendererString: any) => {
-        return /swiftshader|llvmpipe|software rasterizer|microsoft basic render/i.test(
-            rendererString,
         );
     };
 }
