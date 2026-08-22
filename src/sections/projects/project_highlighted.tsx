@@ -33,12 +33,18 @@ export default function ProjectHighlighted({
                     className='w-full aspect-video overflow-clip rounded-md ring-1 ring-text/30'
                 >
                     <div className='relative w-full h-full'>
-                        <img
-                            src={`assets/projects/${project.image}.webp`}
-                            alt='Project Image'
-                            className='absolute w-full h-full object-cover opacity-100'
-                            loading='lazy'
-                        />
+                        <picture>
+                            <source
+                                srcSet={`assets/projects/${project.image}.webp`}
+                                media='(width >= 600px)'
+                            />
+                            <img
+                                src={`assets/projects/small/${project.image}.webp`}
+                                alt='Project Image'
+                                className='absolute w-full h-full object-cover opacity-100'
+                                loading='lazy'
+                            />
+                        </picture>
                     </div>
                 </div>
 
@@ -74,6 +80,7 @@ export default function ProjectHighlighted({
                             target='_blank'
                             rel='noopener noreferrer'
                             href={project.github}
+                            aria-label={`View ${project.title} code in github`}
                         >
                             <GithubSVG />
                         </a>
@@ -82,6 +89,7 @@ export default function ProjectHighlighted({
                             target='_blank'
                             rel='noopener noreferrer'
                             href={project.site ?? project.github}
+                            aria-label={`Visit ${project.title} live site`}
                         >
                             <WebsiteSVG />
                         </a>

@@ -51,6 +51,7 @@ export default function ProjectOther({ project }: { project: ProjectOther }) {
                             target='_blank'
                             rel='noopener noreferrer'
                             href={project.github}
+                            aria-label={`View ${project.title} code in github`}
                         >
                             <GithubSVG />
                         </a>
@@ -59,6 +60,7 @@ export default function ProjectOther({ project }: { project: ProjectOther }) {
                             target='_blank'
                             rel='noopener noreferrer'
                             href={project.site ?? project.github}
+                            aria-label={`Visit ${project.title} live site`}
                         >
                             <WebsiteSVG />
                         </a>
