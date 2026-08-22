@@ -9,7 +9,10 @@ export default function ThemeToggle() {
 
     return (
         <button
+            aria-label={darkMode ? 'Light Mode' : 'Dark Mode'}
+            type='button'
             role='switch'
+            aria-checked={darkMode}
             className={`relative w-12 sm:w-12.5 h-6 sm:h-6.25 ring-2 ring-text rounded-full z-1 p-1.5 cursor-pointer flex flex-row items-center justify-between shrink-0`}
             onClick={toggleColorScheme}
         >

@@ -11,6 +11,7 @@ export default function Contact({ className }: ClassNameProp) {
                     target='_blank'
                     rel='noopener noreferrer'
                     href='https://www.linkedin.com/in/joseph-kyber-a0a26916a/'
+                    aria-label='Go to LinkedIn profile'
                 >
                     <LinkedinSVG />
                 </a>
@@ -19,6 +20,7 @@ export default function Contact({ className }: ClassNameProp) {
                     target='_blank'
                     rel='noopener noreferrer'
                     href='https://github.com/jtkyber'
+                    aria-label='Go to Github profile'
                 >
                     <GithubSVG />
                 </a>
@@ -28,6 +30,7 @@ export default function Contact({ className }: ClassNameProp) {
                 target='_blank'
                 rel='noopener noreferrer'
                 href='mailto:joeykyber@gmail.com'
+                aria-label='Send an email'
             >
                 joeykyber@gmail.com
             </a>

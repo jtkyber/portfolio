@@ -2,10 +2,12 @@
 
 @font-face {
     font-family: 'Fraunces';
+    font-display: swap;
     src: url('/fonts/Fraunces.ttf') format('truetype');
 }
 @font-face {
     font-family: 'GeneralSans';
+    font-display: swap;
     src: '/home/jkyber/Downloads/favicon.png' url('/fonts/GeneralSans.ttf')
         format('truetype');
 }

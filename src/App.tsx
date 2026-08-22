@@ -6,12 +6,11 @@ import { render } from './effects/renderer';
 import campingSceneNight from './assets/camping_theme/camp_scene_night.webp';
 import campingSceneDay from './assets/camping_theme/camp_scene_day.webp';
 import moon from './assets/camping_theme/moon.webp';
-import pine from './assets/camping_theme/pine_day.webp';
-import pine_dark from './assets/camping_theme/pine_night.webp';
+import pine from './assets/camping_theme/pine_day.svg';
+import pine_dark from './assets/camping_theme/pine_night.svg';
 import { useColorScheme } from './hooks/use_color_scheme';
 import Skills from './sections/skills';
 import About from './sections/about';
-import DuotoneFilter from './components/svg/duotone_filter';
 
 function App() {
     const hasRun = useRef(false);
@@ -48,27 +47,17 @@ function App() {
             ) : null}
 
             <div className='absolute w-full h-screen top-0 hidden sm:block'>
-                <DuotoneFilter
-                    id='duotone-tree-dark'
-                    shadow='#06090e'
-                    highlight='#1c273a'
-                />
-
-                <DuotoneFilter
-                    id='duotone-tree-light'
-                    shadow='#23201b'
-                    highlight='#4a654d'
-                />
-
                 <div className={darkMode ? 'hidden' : 'block'}>
                     <img
                         src={pine}
                         alt='Pine Tree'
+                        fetchPriority='high'
                         className='absolute bottom-0 right-0 h-full object-cover overflow-visible scale-200 origin-bottom translate-x-1/2 -mr-22 translate-y-25 -rotate-2'
                     />
                     <img
                         src={pine}
                         alt='Pine Tree'
+                        fetchPriority='high'
                         className='absolute bottom-0 left-0 h-full scale-300 origin-bottom -translate-x-1/2 -ml-40 -translate-y-50 rotate-5 object-cover overflow-visible'
                     />
                 </div>
