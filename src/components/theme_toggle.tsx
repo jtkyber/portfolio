@@ -1,11 +1,14 @@
-import { useColorScheme } from '../hooks/use_color_scheme';
+import { useDispatch, useSelector } from 'react-redux';
 import MoonSVG from './svg/moon.svg';
 import SunSVG from './svg/sun.svg';
+import type { RootState } from '../state/store';
+import { toggleDarkMode } from '../state/features/theme/themeSlice';
 
 export default function ThemeToggle() {
-    const [darkMode, toggleDarkMode] = useColorScheme();
+    const darkMode = useSelector((state: RootState) => state.theme.darkMode);
+    const dispatch = useDispatch();
 
-    const toggleColorScheme = () => toggleDarkMode();
+    const toggleColorScheme = () => dispatch(toggleDarkMode());
 
     return (
         <button
