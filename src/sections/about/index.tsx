@@ -2,11 +2,12 @@ import SectionLabel from '../../components/section_label';
 import profile from '../../assets/about/profile_square2.webp';
 import Glow from '../../components/glow';
 import DuotoneFilter from '../../components/svg/duotone_filter';
-import { useColorScheme } from '../../hooks/use_color_scheme';
 import Contact from './contact';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../../state/store';
 
 export default function About() {
-    const [darkMode, _toggleDarkMode] = useColorScheme();
+    const darkMode = useSelector((state: RootState) => state.theme.darkMode);
 
     return (
         <section

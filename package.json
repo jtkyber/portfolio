@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.12.0",
     "@tailwindcss/vite": "^4.3.3",
     "ogl": "^1.0.11",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "react-redux": "^9.3.0",
     "recharts": "^3.10.1",
     "tailwindcss": "^4.3.3",
     "wouter": "^3.10.0"

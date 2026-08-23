@@ -1,7 +1,8 @@
-import { useColorScheme } from '../hooks/use_color_scheme';
+import { useSelector } from 'react-redux';
+import type { RootState } from '../state/store';
 
 export default function Hero() {
-    const [darkMode, _toggleDarkMode] = useColorScheme();
+    const darkMode = useSelector((state: RootState) => state.theme.darkMode);
 
     return (
         <section

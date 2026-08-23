@@ -8,20 +8,26 @@ import campingSceneDay from './assets/camping_theme/camp_scene_day.webp';
 import moon from './assets/camping_theme/moon.webp';
 import pine from './assets/camping_theme/pine_day.svg';
 import pine_dark from './assets/camping_theme/pine_night.svg';
-import { useColorScheme } from './hooks/use_color_scheme';
 import Skills from './sections/skills';
 import About from './sections/about';
+import { useDispatch, useSelector } from 'react-redux';
+import type { RootState } from './state/store';
+import { setDarkMode } from './state/features/theme/themeSlice';
 
 function App() {
-    const hasRun = useRef(false);
-    const [darkMode, _toggleDarkMode] = useColorScheme();
+    const darkMode = useSelector((state: RootState) => state.theme.darkMode);
+    const dispatch = useDispatch();
+
+    const mounted = useRef(false);
+    if (!mounted.current) {
+        const darkModeStored = localStorage.getItem('darkMode');
+        dispatch(setDarkMode(JSON.parse(darkModeStored || 'true')));
+    }
 
     useEffect(() => {
-        if (hasRun.current) return;
-
+        if (mounted.current) return;
         render();
-
-        hasRun.current = true;
+        mounted.current = true;
     }, []);
 
     return (
