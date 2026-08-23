@@ -35,11 +35,11 @@ export default function ProjectHighlighted({
                     <div className='relative w-full h-full'>
                         <picture>
                             <source
-                                srcSet={`assets/projects/${project.image}.webp`}
+                                srcSet={`/assets/projects/${project.image}.webp`}
                                 media='(width >= 600px)'
                             />
                             <img
-                                src={`assets/projects/small/${project.image}.webp`}
+                                src={`/assets/projects/small/${project.image}.webp`}
                                 alt='Project Image'
                                 className='absolute w-full h-full object-cover opacity-100'
                                 loading='lazy'
