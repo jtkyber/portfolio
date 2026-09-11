@@ -17,7 +17,7 @@ export default function ProjectHighlighted({
 
             <div
                 data-name='project-contents'
-                className='relative flex flex-col w-full h-full gap-4 p-6 z-1'
+                className='relative flex flex-col w-full h-full gap-4 px-6 py-4 z-1'
             >
                 <div
                     data-name='tag-container'
@@ -72,27 +72,38 @@ export default function ProjectHighlighted({
                         ))}
                     </div>
                     <div
-                        data-name='link-container'
-                        className='w-full h-5 flex flex-row justify-center gap-6'
+                        data-name='bottom-container'
+                        className='w-full flex flex-row justify-between items-start'
                     >
-                        <a
-                            className='item-hover'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            href={project.github}
-                            aria-label={`View ${project.title} code in github`}
+                        <h5
+                            className={`custom-tag bg-text/0 text-text/60 font-light`}
                         >
-                            <GithubSVG />
-                        </a>
-                        <a
-                            className='item-hover'
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            href={project.site ?? project.github}
-                            aria-label={`Visit ${project.title} live site`}
+                            {project.yearCreated}
+                        </h5>
+
+                        <div
+                            data-name='link-container'
+                            className='flex h-4.5 flex-row justify-center gap-4'
                         >
-                            <WebsiteSVG />
-                        </a>
+                            <a
+                                className='item-hover'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href={project.github}
+                                aria-label={`View ${project.title} code in github`}
+                            >
+                                <GithubSVG />
+                            </a>
+                            <a
+                                className='item-hover'
+                                target='_blank'
+                                rel='noopener noreferrer'
+                                href={project.site ?? project.github}
+                                aria-label={`Visit ${project.title} live site`}
+                            >
+                                <WebsiteSVG />
+                            </a>{' '}
+                        </div>
                     </div>
                 </div>
             </div>

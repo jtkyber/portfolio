@@ -21,6 +21,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         github: 'https://github.com/jtkyber/rootd',
         site: 'https://rootd-jtkyber.vercel.app/',
         tag: 'SaaS',
+        yearCreated: 2023,
     },
     {
         id: 'ezCompare',
@@ -39,6 +40,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         github: 'https://github.com/jtkyber/comparison-app',
         site: 'https://comparison-app-murex.vercel.app/',
         tag: 'SaaS',
+        yearCreated: 2025,
     },
     {
         id: 'customKitchen',
@@ -65,6 +67,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         github: 'https://github.com/jtkyber/recipe-app',
         site: 'https://recipe-app-ten-xi.vercel.app',
         tag: 'SaaS',
+        yearCreated: 2025,
     },
     {
         id: 'gameEngine',
@@ -75,6 +78,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         github: 'https://github.com/jtkyber/game_engine',
         site: 'https://jtkyber.github.io/game_engine/',
         tag: 'Engine',
+        yearCreated: 2024,
     },
 
     {
@@ -86,6 +90,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         github: 'https://github.com/jtkyber/raycaster-game',
         site: 'https://jtkyber.github.io/raycaster-game/',
         tag: 'Engine',
+        yearCreated: 2023,
     },
     {
         id: 'resortForecast',
@@ -97,6 +102,7 @@ export const projectsHighlighted: ProjectHighlighted[] = [
         github: 'https://github.com/jtkyber/resort-forecast-api',
         site: 'https://rapidapi.com/joeykyber/api/ski-resort-forecast',
         tag: 'API',
+        yearCreated: 2022,
     },
 ];
 
