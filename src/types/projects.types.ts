@@ -11,6 +11,7 @@ export type ProjectHighlighted = {
     github: string;
     site: string;
     tag: ProjectCategory;
+    yearCreated: number;
 };
 
 export type ProjectOther = {
