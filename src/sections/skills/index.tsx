@@ -54,7 +54,7 @@ export default function Skills() {
                     {skillsByCat.map((cats) => (
                         <div
                             key={cats.category}
-                            className='relative flex flex-col sm:flex-row w-full gap-8 py-7 items-center after-content-[""] after:absolute after:inset-0 after:h-full after:ml-10 after:border-b after:border-text/10 last:after:border-0'
+                            className='relative flex flex-col sm:flex-row w-full gap-8 py-7 items-center after-content-[""] after:absolute after:inset-0 after:h-full lg:after:ml-10 after:ml-0 after:border-b after:border-text/10 last:after:border-0'
                         >
                             <h3 className='w-25 flex-none text-text text-lg font-light text-center sm:text-left text-nowrap'>
                                 {cats.category}
